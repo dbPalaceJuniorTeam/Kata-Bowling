@@ -1,10 +1,16 @@
 import org.bowlingGame.Game;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GameTest
 {
-    Game game = new Game();
+    Game game;
+
+    @BeforeEach
+    public void newGame(){
+        game = new Game();
+    }
 
     @Test
     void rollPinsDown(){
@@ -24,11 +30,11 @@ public class GameTest
 
     @Test
     void rollStrike(){
-        game.roll(10);//30
-        game.roll(10);//23 -53
-        game.roll(10);//17 -70
+        game.roll(10);
+        game.roll(10);
+        game.roll(10);
         game.roll(3);
-        game.roll(4);//7
+        game.roll(4);
 
         assertEquals(77,game.score());
     }
@@ -39,9 +45,9 @@ public class GameTest
         for (int i = 0; i < 18; i++) {
             game.roll(0);
         }
-        game.roll(10);//18
+        game.roll(10);
         game.roll(5);
-        game.roll(3);//+8
+        game.roll(3);
 
         assertEquals(18,game.score());
 
@@ -53,9 +59,9 @@ public class GameTest
         for (int i = 0; i < 18; i++) {
             game.roll(0);
         }
-        game.roll(5);//13
         game.roll(5);
-        game.roll(3);//+8
+        game.roll(5);
+        game.roll(3);
 
         assertEquals(13,game.score());
 
@@ -77,35 +83,31 @@ public class GameTest
     @Test
     void rollRandom(){
         game.roll(0);
-        game.roll(1);//1
+        game.roll(1);
 
         game.roll(3);
-        game.roll(4);//8
+        game.roll(4);
 
-        game.roll(7);//28
+        game.roll(7);
         game.roll(3);
 
-        game.roll(10);//50
-        //game.roll(10);
+        game.roll(10);
 
-        game.roll(10);//65
-        //game.roll(10);
+        game.roll(10);
 
         game.roll(2);
-        game.roll(3);//70
+        game.roll(3);
 
-        game.roll(10);//90
-        //game.roll();
+        game.roll(10);
 
         game.roll(5);
-        game.roll(5);//103
+        game.roll(5);
 
         game.roll(3);
-        game.roll(2);//108
+        game.roll(2);
 
-        game.roll(3);//114
         game.roll(3);
-        //game.roll(10);
+        game.roll(3);
 
         assertEquals(114,game.score());
 

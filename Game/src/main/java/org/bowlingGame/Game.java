@@ -1,19 +1,18 @@
 package org.bowlingGame;
 
+import java.util.Arrays;
+
 public class Game {
 
     int[] rolls = new int[21];
     int actualScore=0;
     int actualRoll=0;
     public Game() {
-        for(int i=0;i<rolls.length;i++){
-            rolls[i]=0;
-        }
+        Arrays.fill(rolls, 0);
 
     }
 
     public void roll(int pinsDown){
-        //[5,5 ,3,4 ,1,0 , 0,0 ,0,0 ,0,0 ,0,0 ,0,0 ,0,0 ,0,0,0]
 
         rolls[actualRoll]=pinsDown;
         actualRoll++;
@@ -24,14 +23,6 @@ public class Game {
     }
 
     public int score(){
-
-        //[5,5 ,3,4 ,1,0 , 0,0 ,0,0 ,0,0 ,0,0 ,0,0 ,0,0 ,0,0,0]
-        //[10,0 ,10,0 ,10,0 , 2,3 ,0,0 ,0,0 ,0,0 ,0,0 ,0,0 ,0,0,0]
-        //[10 ,10 ,10 , 2,3 ,0,0 ,0,0 ,0,0 ,0,0 ,0,0 ,0,0,0]
-        //30     20    15     5
-
-
-        //13 7 1
 
         int pointer=0;
 
