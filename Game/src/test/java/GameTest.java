@@ -74,5 +74,41 @@ public class GameTest
 
     }
 
+    @Test
+    void rollRandom(){
+        game.roll(0);
+        game.roll(1);//1
+
+        game.roll(3);
+        game.roll(4);//8
+
+        game.roll(7);//28
+        game.roll(3);
+
+        game.roll(10);//50
+        //game.roll(10);
+
+        game.roll(10);//65
+        //game.roll(10);
+
+        game.roll(2);
+        game.roll(3);//70
+
+        game.roll(10);//90
+        //game.roll();
+
+        game.roll(5);
+        game.roll(5);//103
+
+        game.roll(3);
+        game.roll(2);//108
+
+        game.roll(3);//114
+        game.roll(3);
+        //game.roll(10);
+
+        assertEquals(114,game.score());
+
+    }
 
 }
