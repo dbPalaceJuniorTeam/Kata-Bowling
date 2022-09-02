@@ -32,7 +32,6 @@ public class GameTest
         game.roll(5,5, 4,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
 
         assertEquals(18,game.score());
-
     }
 
     @Test
@@ -54,9 +53,7 @@ public class GameTest
 
         game.roll(0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 10,5,3);
 
-
         assertEquals(18,game.score());
-
     }
 
     @Test
@@ -65,7 +62,6 @@ public class GameTest
         game.roll(0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 5,5,3);
 
         assertEquals(13,game.score());
-
     }
 
     @Test
@@ -73,9 +69,7 @@ public class GameTest
 
         game.roll(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
 
-
         assertEquals(300,game.score());
-
     }
 
     @Test
@@ -84,6 +78,5 @@ public class GameTest
         game.roll(-1,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
 
         assertEquals(-1,game.score());
-
     }
 }
