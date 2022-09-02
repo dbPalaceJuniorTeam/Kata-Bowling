@@ -1,54 +1,60 @@
 package org.bowlingGame;
 
-import java.util.Arrays;
-
 public class Game {
 
-    int[] rolls = new int[21];
-    int actualScore=0;
-    int actualRoll=0;
+    private int roll = 0;
+    private int[] rolls = new int[21];
+
     public Game() {
-        Arrays.fill(rolls, 0);
 
     }
 
-    public void roll(int pinsDown){
+    public void roll(int...rolls) {
 
-        rolls[actualRoll]=pinsDown;
-        actualRoll++;
-        if(actualRoll>=21){
-            actualRoll=rolls.length-1;
+        for (int pinsDown : rolls) {
+            roll(pinsDown);
         }
+    }
+    public void roll(int pinsDown) {
 
+        rolls[roll++] = pinsDown;
     }
 
-    public int score(){
+    public int score() {
 
-        int pointer=0;
+        int score = 0;
+        int pointer = 0;
 
         for (int frame = 0; frame < 10; frame++) {
 
-            if(isStrike(pointer)){
-                actualScore+=10+rolls[pointer+1]+rolls[pointer+2];
-                pointer+=1;
-            }
-            else if(isSpareRoll(pointer)){
-                actualScore+=10+rolls[pointer+2];
-                pointer+=2;
-            }else{
-                actualScore+=rolls[pointer]+rolls[pointer+1];
-                pointer+=2;
+            if (isStrike(pointer)) {
+
+                score += 10 + rolls[pointer + 1] + rolls[pointer + 2];
+                pointer += 1;
+
+            } else if (isSpare(pointer)) {
+
+                score += 10 + rolls[pointer + 2];
+                pointer += 2;
+
+            } else {
+
+                score += rolls[pointer] + rolls[pointer + 1];
+                pointer += 2;
+
             }
         }
 
-        return actualScore;
+        return score;
     }
 
     private boolean isStrike(int frame) {
+
         return rolls[frame] == 10;
     }
 
-    private boolean isSpareRoll(int frame) {
+    private boolean isSpare(int frame) {
+
         return rolls[frame] + rolls[frame + 1] == 10;
     }
 
