@@ -62,9 +62,6 @@ public class GameTest
     @Test
     void canRollSpareBonusInTenthFrame(){
 
-        for (int i = 0; i < 18; i++) {
-            game.roll(0);
-        }
         game.roll(0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 5,5,3);
 
         assertEquals(13,game.score());
@@ -72,11 +69,21 @@ public class GameTest
     }
 
     @Test
-    void rollAllStrikes(){
+    void canScorePerfectGame(){
 
+        game.roll(10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10);
 
 
         assertEquals(300,game.score());
+
+    }
+
+    @Test
+    void canHandleNegativeNumbers(){
+
+        game.roll(-1,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
+
+        assertEquals(-1,game.score());
 
     }
 }

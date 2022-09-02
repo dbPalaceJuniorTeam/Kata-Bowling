@@ -18,6 +18,10 @@ public class Game {
     public void roll(int pinsDown) {
 
         rolls[roll] = pinsDown;
+        roll++;
+        if(roll>=21){
+            roll--;
+        }
     }
 
     public int score() {
