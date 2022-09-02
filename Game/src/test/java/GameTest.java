@@ -36,39 +36,36 @@ public class GameTest
     }
 
     @Test
-    void rollStrike(){
-        game.roll(10);
-        game.roll(10);
-        game.roll(10);
-        game.roll(3);
-        game.roll(4);
+    void canScoreStrike(){
+        game.roll(10, 5,4, 5,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
 
-        assertEquals(77,game.score());
+        assertEquals(33,game.score());
     }
 
     @Test
-    void rollStrikeTenthFrame(){
+    void canScoreStrikeAfterStrike(){
+        game.roll(10, 10, 5,4, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0);
 
-        for (int i = 0; i < 18; i++) {
-            game.roll(0);
-        }
-        game.roll(10);
-        game.roll(5);
-        game.roll(3);
+        assertEquals(53,game.score());
+    }
+
+    @Test
+    void canRollStrikeBonusInTenthFrame(){
+
+        game.roll(0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 10,5,3);
+
 
         assertEquals(18,game.score());
 
     }
 
     @Test
-    void rollSpareTenthFrame(){
+    void canRollSpareBonusInTenthFrame(){
 
         for (int i = 0; i < 18; i++) {
             game.roll(0);
         }
-        game.roll(5);
-        game.roll(5);
-        game.roll(3);
+        game.roll(0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 5,5,3);
 
         assertEquals(13,game.score());
 

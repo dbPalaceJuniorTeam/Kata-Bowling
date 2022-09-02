@@ -17,7 +17,7 @@ public class Game {
     }
     public void roll(int pinsDown) {
 
-        rolls[roll++] = pinsDown;
+        rolls[roll] = pinsDown;
     }
 
     public int score() {
